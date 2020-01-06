@@ -4,8 +4,10 @@
 # This was done in good faith to be consistent with the Maps API.
 
 import places_summarized
-from places_summarized.summary import Summary
 import googlemaps
+import json
+import os
+from places_summarized.summary import Summary
 
 
 class Client(object):

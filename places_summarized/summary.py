@@ -5,7 +5,7 @@
 
 import places_summarized
 from places_summarized.errors import NoPlacesError
-from statistics import mean
+from statistics import StatisticsError, mean
 
 
 class Summary(object):
@@ -46,7 +46,16 @@ class Summary(object):
             raise NoPlacesError(self.location)
 
         ratings = self.ratings_by_type(location_type)
-        return mean(ratings)
+        try:
+            return mean(ratings)
+        except StatisticsError:
+            print("No ratings found.")
+
+    def average_price_level(self):
+        try:
+            return mean(self.price_levels)
+        except StatisticsError:
+            print("No ratings found.")
 
     def _make_summary(self):
         locations = self.nearby_results.get('results', [])
