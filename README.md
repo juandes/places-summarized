@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/juandes/places-summarized.svg?branch=master)](https://travis-ci.com/juandes/places-summarized) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![](logo.png)
+
 Places Summarized is a wrapper around Google Maps' Places API that summarizes
 the attributes of the locations nearby the specified coordinate.
 
@@ -54,3 +56,7 @@ pp.pprint(summary.result())
 ## Documentation
 
 TO DO... :/ maybe you want to help?
+
+## Acknowledgements
+- "Pin" icon taken from [Freepik on Flaticon](https://www.flaticon.com/authors/freepik).
+- "Barchat" icon taken from [Gregor Cresnar on Flaticon](https://www.flaticon.com/authors/gregor-cresnar).
