@@ -1,4 +1,7 @@
-# Places Summarized
+# Places Summarized 
+
+[![Build Status](https://travis-ci.com/juandes/places-summarized.svg?branch=master)](https://travis-ci.com/juandes/places-summarized) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Places Summarized is a wrapper around Google Maps' Places API that summarizes
 the attributes of the locations nearby the specified coordinate.
 
@@ -23,7 +26,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 client = Client(key='your-key')
-# Google's Sydney offices
+# Google Sydney offices
 summary = client.places_summary(location=(-33.8670522, 151.1957362), radius=1000)
 pp.pprint(summary.result())
 # Print the ratings of the locations of type "point_of_interest."
