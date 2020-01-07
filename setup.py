@@ -24,5 +24,6 @@ setuptools.setup(
         "Intended Audience :: Developers",
     ],
     python_requires=">=3.6",
+    install_requires=base_packages,
     include_package_data=True
 )
