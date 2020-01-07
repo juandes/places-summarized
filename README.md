@@ -19,11 +19,10 @@ Install Places Summarized via pip using
 This example uses a Google Maps API key.
 
 ```python
-from places_summarized.client import Client
 import pprint
+from places_summarized.client import Client
 
 pp = pprint.PrettyPrinter(indent=4)
-
 
 client = Client(key='your-key')
 # Google Sydney offices
@@ -36,14 +35,13 @@ print(summary.ratings_by_type('point_of_interest'))
 # Print the average price level of all the places
 print(summary.average_price_level())
 
-
 ```
 
 Or, you can test it without a key, using the `TestClient`.
 
 ```python
-from places_summarized.fake_client import FakeClient
 import pprint
+from places_summarized.fake_client import FakeClient
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -55,4 +53,4 @@ pp.pprint(summary.result())
 
 ## Documentation
 
-TO DO... :/ maybe you want to help? Head over to issues!
+TO DO... :/ maybe you want to help?
