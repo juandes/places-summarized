@@ -25,6 +25,6 @@ class FakeClient(Client):
         with open(os.path.join(os.path.dirname(__file__), 'data/sydney.json')) as json_file:
             data = json.load(json_file)
 
-        summary = Summary(data, "Test Location", "Test Page Token")
+        summary = Summary(data, "Test Location")
         summary._make_summary()
         return summary
