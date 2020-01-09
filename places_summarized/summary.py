@@ -13,10 +13,10 @@ class Summary(object):
     Performs the summary using Google's nearby places data.
     """
 
-    def __init__(self, result, location, page_token):
+    def __init__(self, result, location):
         self.nearby_results = result
         self.location = location
-        self.next_page_token = page_token
+        self.next_page_token = result['next_page_token']
 
     def result(self):
         """

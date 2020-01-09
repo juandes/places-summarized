@@ -70,6 +70,6 @@ class Client(object):
         result = self.places_nearby(
             location=location, radius=radius, page_token=page_token)
 
-        summary = Summary(result, location, page_token)
+        summary = Summary(result, location)
         summary._make_summary()
         return summary
