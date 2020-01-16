@@ -9,4 +9,4 @@ before_install:
 install:
   - pip install -e .
 script:
-  - python places_summarized/testing.py
+  - python places_summarized/test.py
