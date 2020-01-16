@@ -1,4 +1,5 @@
 import unittest
+
 from places_summarized.fake_client import FakeClient
 
 
@@ -17,4 +18,3 @@ class TestSummary(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    

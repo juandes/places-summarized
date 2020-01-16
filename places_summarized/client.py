@@ -3,10 +3,12 @@
 # https://github.com/googlemaps/google-maps-services-python/blob/master/googlemaps/places.py
 # This was done in good faith to be consistent with the Maps API.
 
-import places_summarized
-import googlemaps
 import json
+import logging
 import os
+
+import googlemaps
+import places_summarized
 from places_summarized.summary import Summary
 
 
@@ -73,3 +75,12 @@ class Client(object):
         summary = Summary(result, location)
         summary._make_summary()
         return summary
+
+    def get_more_results(self, summary):
+        if summary.next_page_token is None:
+            logging.warning("No more results.")
+            return
+
+        result = self.places_nearby(
+                    page_token=summary.next_page_token)
+        summary._add_more_results(result)

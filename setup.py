@@ -10,7 +10,7 @@ def read(fname):
 
 setuptools.setup(
     name="places-summarized",
-    version="0.0.9",
+    version="0.1.0",
     author="Juan De Dios Santos",
     author_email="author@example.com",
     description="Summarizing the Google Maps attributes of places within a specified area",

@@ -16,7 +16,12 @@ class Summary(object):
     def __init__(self, result, location):
         self.nearby_results = result
         self.location = location
-        self.next_page_token = result['next_page_token']
+        self.next_page_token = result.get('next_page_token', None)
+        self.num_locations = 0
+        self.ratings = []
+        self.user_ratings_totals = []
+        self.price_levels = []
+        self.location_types = {}
 
     def result(self):
         """
@@ -29,7 +34,8 @@ class Summary(object):
         Returns the ratings of the locations of the given type
 
         :param type: Location type, e.g., atm, park, or restaurant.
-        You can find the full list at: https://developers.google.com/places/web-service/supported_types
+        You can find the full list at:
+        https://developers.google.com/places/web-service/supported_types
         :type location_type: string
         """
         return self._get_stat_by_type('rating', location_type)
@@ -39,7 +45,8 @@ class Summary(object):
         Calculates the average rating of the locations of the given type
 
         :param type: Location type, e.g., atm, park, or restaurant.
-        You can find the full list at: https://developers.google.com/places/web-service/supported_types
+        You can find the full list at:
+        https://developers.google.com/places/web-service/supported_types
         :type location_type: string
         """
         if self.nearby_results is None:
@@ -64,11 +71,7 @@ class Summary(object):
         if num_locations == 0:
             raise NoPlacesError(self.location)
 
-        self.num_locations = num_locations
-        self.ratings = []
-        self.user_ratings_totals = []
-        self.price_levels = []
-        self.location_types = {}
+        self.num_locations += num_locations
 
         for location in locations:
             _append_if_key_exists(self.ratings, location, 'rating')
@@ -97,6 +100,11 @@ class Summary(object):
                                'average_price_level')
 
         self._summary = summary
+
+    def _add_more_results(self, result):
+        self.nearby_results = result
+        self.next_page_token = result.get('next_page_token', None)
+        self._make_summary()
 
     def _get_stat_by_type(self, stat, location_type):
         if self.nearby_results is None:

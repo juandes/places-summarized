@@ -1,5 +1,6 @@
 import json
 import os
+
 from places_summarized.client import Client
 from places_summarized.summary import Summary
 
@@ -14,6 +15,9 @@ class FakeClient(Client):
         pass
 
     def places_nearby(self, location=None, radius=None, page_token=None):
+        print("Method not available in FakeClient.")
+
+    def get_more_results(self, summary):
         print("Method not available in FakeClient.")
 
     def places_summary(self):
