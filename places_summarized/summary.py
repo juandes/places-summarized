@@ -89,7 +89,8 @@ class Summary(object):
             'ratings': self.ratings,
             'user_ratings_total': self.user_ratings_totals,
             'price_levels': self.price_levels,
-            'location_types': self.location_types
+            'location_types': self.location_types,
+            'number_locations': self.num_locations,
         }
 
         _add_average_if_values(self.ratings, summary,

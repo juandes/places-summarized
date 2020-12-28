@@ -13,7 +13,12 @@ class TestSummary(unittest.TestCase):
         self.assertEqual(r['average_price_level'], 2.5)
 
     def test_average_rating(self):
-        self.assertAlmostEqual(self.summary.average_rating_by_type('restaurant'), 3.93, 2)
+        self.assertAlmostEqual(
+            self.summary.average_rating_by_type('restaurant'), 3.93, 2)
+
+    def test_number_locations(self):
+        r = self.summary.result()
+        self.assertEqual(r['number_locations'], 20)
 
 
 if __name__ == '__main__':
